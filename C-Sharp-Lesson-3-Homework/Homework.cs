@@ -23,13 +23,24 @@ namespace C_Sharp_Lesson_3_Homework
              * ------------------------------------------
              *    
              */
-            //your code here
+            int len0 = matrixOfIntegers.GetLength(0);
+            int len1 = matrixOfIntegers.GetLength(1);
+            int middle = matrixOfIntegers[len0 / 2, len1 / 2];
 
 
+            if (len0 % 2 == 1 && len1 % 2 == 1)
+            {
+                Console.WriteLine("The central element is " + middle);
+            }
+            else
+            {
+                Console.WriteLine("This matrix doesn't have a central element");
+            }
         }
+
         public void GetSummOfDiagonalsElements(int[,] matrixOfIntegers)
         {
-            /*print to console the central element from matrixOfIntegers, if not exist print: "This matrix doesn't have a central element"
+            /*print to console the sum of diagonals from matrixOfIntegers, if not exist print: "This matrix doesn't have a diagonal"
              * |   input           | result              |
              * |-------------------|---------------------|
              * | {                 |                     |
@@ -40,15 +51,29 @@ namespace C_Sharp_Lesson_3_Homework
              * |-----------------------------------------|
              * |{                  |                     |
              * | { 1,  6, 21,  8 },| This matrix doesn't |
-             * | { 5, -4,  5,  7 },| have a diagonals    |
+             * | { 5, -4,  5,  7 },| have a diagonal     |
              * | {77,  5,  0, 74 } |                     |
              * | }                 |                     |
              * ------------------------------------------
              *    
              */
             //your code here
+            int sum = 0;
 
+            for (int row = 0; row < array.GetLength(0); row++)
+            {
+                for (int column = 0; column < array.GetLength(1); column++)
+                {
+                    if (row == column)
+                    {
+                        sum += array[row, column];
+                    }
+                    else sum = 0;
+                }
+            }
+            Console.WriteLine("Diagonal Array Element Sum : " + sum);
         }
+
         public void StarPrinter(int triangleHight)
         {
             /* Write a programm that will print a triagle of stars  with hight = triangleHight
